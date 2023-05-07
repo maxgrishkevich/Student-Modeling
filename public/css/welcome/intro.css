@@ -1,0 +1,279 @@
+.section-1 {
+    background-image: linear-gradient(75deg, #5e72e4, #412b7c);
+    line-height: 1.6;
+}
+
+.sheet-1 {
+    position: relative;
+    width: 1140px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.layout-row-1 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 100%;
+    max-width: 100%;
+    display: flex;
+}
+
+.layout-cell-1 {
+    position: relative;
+    display: flex;
+    background-clip: padding-box;
+    background-origin: padding-box;
+}
+
+.layout-row-1 > * {
+    max-height: 100%;
+    min-height: fit-content;
+}
+
+.valign-middle-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-layout-1 {
+    position: relative;
+    flex: 1;
+    max-width: 100%;
+}
+
+.section-1 .image-1 {
+    height: 646px;
+    margin: 0 auto 0 0;
+}
+
+.expanded-width-1 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.image-1 {
+    object-fit: contain;
+    background-size: contain;
+}
+
+.section-1 .left-cell-1 {
+    min-height: 733px;
+}
+
+.section-1 .right-cell-1 {
+    min-height: 733px;
+}
+
+.section-1 .container-layout-1 {
+    padding: 30px 0 30px 30px;
+}
+
+.section-1 .text-1 {
+    font-weight: 700;
+    font-size: 4.25rem;
+    margin: 0;
+}
+
+.section-1 .text-2 {
+    font-size: 1.5rem;
+    margin: 40px 0 0 135px;
+}
+
+.text-alt-color-1, a.button-stl-1.text-alt-color-1, a.button-stl-1.text-alt-color-1 {
+    color: #ffffff;
+}
+
+.section-1 .btn-1 {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 40px auto 0 135px;
+}
+
+.text-palette-1, a.button-stl-1.text-palette-1, a.button-stl-1.text-palette-1 {
+    color: #2dbeff;
+}
+
+.btn-1 {
+    padding: 10px 30px;
+    background-color: #2dbeff;
+    color: #ffffff;
+}
+
+:root {
+    --mdb-font-roboto: "Montserrat",sans-serif;
+    --mdb-bg-opacity: 1;
+}
+
+
+@media (max-width: 1199px) {
+    .section-1 .sheet-1 {
+        min-height: 670px;
+    }
+    .section-1 .left-cell-1 {
+        min-height: 498px;
+    }
+    .section-1 .image-1 {
+        height: 439px;
+        margin-right: initial;
+        margin-left: initial;
+    }
+    .section-1 .right-cell-1 {
+        min-height: 744px;
+    }
+    .section-1 .text-2 {
+        margin-left: 48px;
+    }
+    .section-1 .btn-1 {
+        margin-left: 48px;
+    }
+}
+
+@media (max-width: 991px) {
+    .section-1 .sheet-1 {
+        min-height: 513px;
+    }
+    .section-1 .left-cell-1 {
+        min-height: 100px;
+    }
+    .section-1 .image-1 {
+        height: 336px;
+        margin-right: initial;
+        margin-left: initial;
+    }
+    .section-1 .right-cell-1 {
+        min-height: 100px;
+    }
+    .section-1 .text-1 {
+        font-size: 3rem;
+    }
+    .section-1 .text-2 {
+        margin-left: auto;
+    }
+    .section-1 .btn-1 {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .section-1 .sheet-1 {
+        min-height: 385px;
+    }
+    .layout-wrap-1 .layout-1 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .layout-wrap-1 .layout-1 .layout-cell-1 {
+        border-left: 0;
+        border-right: 0;
+    }
+    .section-1 .image-1 {
+        height: 540px;
+        margin-right: initial;
+        margin-left: initial;
+    }
+    .layout-wrap-1 .layout-1 .layout-cell-1 {
+        border-left: 0;
+        border-right: 0;
+    }
+    .section-1 .container-layout-1 {
+        padding-left: 10px;
+    }
+    .section-1 .text-2 {
+        width: auto;
+        margin-left: 188px;
+    }
+    .section-1 .btn-1 {
+        margin-right: 188px;
+    }
+    .layout-row-1 > * {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .section-1 .sheet-1 {
+        min-height: 242px;
+    }
+    .sheet-1 {
+        width: 340px;
+    }
+    .layout-row-1 > .resize-1 {
+        flex: 0 0 46.66666667%;
+        max-width: 46.66666667%;
+    }
+    .section-1 .image-1 {
+        height: 340px;
+        margin-right: initial;
+        margin-left: initial;
+    }
+    .layout-row-1 > .resize-2 {
+        flex: 0 0 53.33333333%;
+        max-width: 53.33333333%;
+    }
+    .section-1 .text-2 {
+        margin-left: 0;
+    }
+    .section-1 .btn-1 {
+        margin-right: auto;
+        margin-left: 0;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .sheet-1 {
+        width: 1140px;
+    }
+    .layout-row-1 > .resize-1 {
+        flex: 0 0 56.66666667%;
+        max-width: 56.66666667%;
+    }
+    .layout-row-1 > .resize-2 {
+        flex: 0 0 43.33333333%;
+        max-width: 43.33333333%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .sheet-1 {
+        width: 940px;
+    }
+    .layout-row-1 > .resize-1 {
+        flex: 0 0 46.66666667%;
+        max-width: 46.66666667%;
+    }
+    .layout-row-1 > .resize-2 {
+        flex: 0 0 53.33333333%;
+        max-width: 53.33333333%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .sheet-1 {
+        width: 720px;
+    }
+    .layout-row-1 > .resize-1 {
+        flex: 0 0 46.66666667%;
+        max-width: 46.66666667%;
+    }
+    .layout-row-1 > .resize-2 {
+        flex: 0 0 53.33333333%;
+        max-width: 53.33333333%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .sheet-1 {
+        width: 540px;
+    }
+    .layout-row-1 > .resize-1 {
+        flex: 0 0 46.66666667%;
+        max-width: 46.66666667%;
+    }
+    .layout-row-1 > .resize-2 {
+        flex: 0 0 53.33333333%;
+        max-width: 53.33333333%;
+    }
+}
