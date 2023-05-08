@@ -5,9 +5,9 @@
         <img width="90" height="25" class="ml-2" src="{{ asset('img/welcome/logo_name.png') }}" alt="logo name">
         </a>
         <ul class="nav justify-content-center mb-md-0 m-0 studel-nav">
-            <li><a href="#studel-intro" class="nav-link px-3">Вступ</a></li>
-            <li><a href="#studel-info" class="nav-link px-3">Інфо</a></li>
-            <li><a href="#studel-about" class="nav-link px-3">Про нас</a></li>
+            <li><a href="#studel-intro" class="nav-link px-3">вступ</a></li>
+            <li><a href="#studel-info" class="nav-link px-3">інфо</a></li>
+            <li><a href="#studel-about" class="nav-link px-3">про нас</a></li>
         </ul>
 
 

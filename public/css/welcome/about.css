@@ -1,3 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+    font-family: "Montserrat", sans-serif !important;
+}
+
 .u-section-1 .u-sheet-1 {
     padding: 0 30px;
 }
@@ -66,7 +72,7 @@
 }
 
 .u-font-montserrat.u-custom-font {
-    font-family: Montserrat, sans-serif !important;
+    font-family: "Montserrat", sans-serif !important;
 }
 
 p:not(.u-text-variant) {

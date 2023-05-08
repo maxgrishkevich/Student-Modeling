@@ -96,14 +96,10 @@
 }
 
 .btn-1 {
-    padding: 10px 30px;
+    padding: 14px 52px 15px 51px;
+    /*padding: 10px 30px;*/
     background-color: #2dbeff;
     color: #ffffff;
-}
-
-:root {
-    --mdb-font-roboto: "Montserrat",sans-serif;
-    --mdb-bg-opacity: 1;
 }
 
 
