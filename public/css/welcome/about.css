@@ -8,11 +8,11 @@ body {
     padding: 0 30px;
 }
 
-.u-section-1 .u-sheet-0 {
+.u-sheet-0 {
     padding: 10px 30px
 }
 
-.u-section-1 .custom-back {
+.custom-back {
     background-color: #5e72e4;
     color:#ffffff;
 }
@@ -37,6 +37,12 @@ body {
 }
 
 .u-section-1 .u-text-1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.text-before {
     font-weight: 700;
     text-transform: uppercase;
     margin: 0;

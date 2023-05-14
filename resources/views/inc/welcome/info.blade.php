@@ -1,4 +1,9 @@
 <section class="align-center-2 section-2" id="studel-info">
+    <div class="custom-back mb-5">
+        <div class="u-clearfix u-sheet u-sheet-0">
+            <h6 class="u-align-left text-before u-valign-middle u-custom-font u-font-montserrat u-text u-text-default u-text-1">{{ __('інфо') }}</h6>
+        </div>
+    </div>
     <div class="sheet-2">
         <div class="expanded-width-2 layout-wrap-2">
             <div class="layout-2">

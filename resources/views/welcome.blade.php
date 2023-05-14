@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/welcome/about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome/intro.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome/info.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('css/welcome/boot.css') }}">--}}
 {{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
 
 

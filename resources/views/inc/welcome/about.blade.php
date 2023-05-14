@@ -1,7 +1,7 @@
 <section class="u-clearfix u-section-1" id="studel-about">
     <div class="custom-back mb-5">
         <div class="u-clearfix u-sheet u-sheet-0">
-            <h6 class="u-align-left u-valign-middle u-custom-font u-font-montserrat u-text u-text-default u-text-1">про нас</h6>
+            <h6 class="u-align-left u-valign-middle u-custom-font u-font-montserrat u-text u-text-default u-text-1 text-before">про нас</h6>
         </div>
     </div>
     <div class="u-clearfix u-sheet u-sheet-1">

@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Dashboard\GeneralController;
+use App\Http\Controllers\Dashboard\ProgressController;
+use App\Http\Controllers\Dashboard\BarChartController;
 
 
 /*
@@ -31,16 +33,12 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 
 Route::group(['middleware' => ['auth']], function () {
-
-    Route::get('/dashboard/general', [GeneralController::class, 'getData'])->name('dashboard.general');
-
-//    Route::get('/dashboard/general', static function () {
-//        return view('cards.general');
-//    })->name('dashboard.general');
-
-    Route::get('/dashboard/progress', static function () {
-        return view('cards.progress');
-    })->name('dashboard.progress');
+    Route::get('/dashboard/general', [GeneralController::class, 'getData'])
+        ->name('dashboard.general');
+    Route::get('/dashboard/progress', [ProgressController::class, 'getData'])
+        ->name('dashboard.progress');
+    Route::get('/dashboard/progress/barchart', [BarChartController::class, 'index'])
+        ->name('progress.barchart');
 });
 
 

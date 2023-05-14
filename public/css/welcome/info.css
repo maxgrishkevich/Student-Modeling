@@ -82,7 +82,7 @@
 
 .u-accordion-link-1, .u-accordion-link-2, .u-accordion-link-3, .u-accordion-link-4 {
     background-image: none;
-    font-weight: 700;
+    /*font-weight: 700;*/
     margin-left: auto;
     padding: 30px;
 }

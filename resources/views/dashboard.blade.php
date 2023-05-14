@@ -8,4 +8,6 @@
         </div>
     </div>
 </div>
+
+@include('inc.welcome.footer')
 @endsection

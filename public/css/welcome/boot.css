@@ -1,0 +1,15 @@
+
+.btn-floating {
+    border-radius: 50% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.fab {
+    font-size: 0.875rem !important;
+    width: 2.8125rem !important;
+}
+
+.card-header:first-child {
+    border-radius: 0 !important;
+}
