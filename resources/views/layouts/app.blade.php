@@ -6,8 +6,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/welcome/logo.png') }}">
+    <title>{{ config('app.name', 'Studel') }}</title>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -40,25 +40,33 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Center Side Of Navbar -->
+
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ route('dashboard.general') }}" role="button">
-                                {{ __('Загальне') }}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ url('/dashboard/progress') }}" role="button">
-                                {{ __('Успішність') }}
-                            </a>
-                        </li>
+                        @guest
+                            @if (Route::has('login'))
+
+                            @endif
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{ route('dashboard.general') }}" role="button">
+                                    {{ __('Загальне') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{ url('/dashboard/progress') }}" role="button">
+                                    {{ __('Успішність') }}
+                                </a>
+                            </li>
+                        @endguest
                     </ul>
+
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav justify-content-between">
+                    <ul class="navbar-nav justify-content-end">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Увійти') }}</a>
                                 </li>
                             @endif
 {{--                            @if (Route::has('register'))--}}

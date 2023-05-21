@@ -8,7 +8,7 @@
 
             <div class="row">
                 <div class="col text-center">
-                    <img class="img-thumbnail rounded-0" src="{{ asset("img/students/$img") }}" alt="student-img" style="max-height: 250px; min-width: 180px">
+                    <img class="img-thumbnail rounded-0" src="{{ asset("storage/img/students/$img") }}" alt="student-img" style="max-height: 250px; min-width: 180px">
                 </div>
                 <div class="col">
                     <table class="table table-borderless">

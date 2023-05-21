@@ -29,11 +29,13 @@ class ProgressController extends Controller
 
             for ($i = 1; $i < 9; $i++) {
                 $marks = Mark::where('student_id', $student->id)->where('semester', $i)->get();
-                $marksArray = $marks->toArray();
-                $sum = array_sum(array_column($marksArray, 'mark'));
-                $count = count($marksArray);
-                $average = ($count > 0) ? round($sum / $count, 1) : 0;
-                $chart[] = $average;
+                if ($marks) {
+                    $marksArray = $marks->toArray();
+                    $sum = array_sum(array_column($marksArray, 'mark'));
+                    $count = count($marksArray);
+                    $average = ($count > 0) ? round($sum / $count, 1) : 0;
+                    $chart[] = $average;
+                }
             }
 
             $sum = array_sum($chart);

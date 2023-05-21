@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col text-center">
-                    <img class="img-thumbnail rounded-0" src="{{ asset("img/students/$img") }}" alt="student-img" style="max-height: 250px; min-width: 180px">
+                    <img class="img-thumbnail rounded-0" src="{{ asset("storage/img/students/$img") }}" alt="student-img" style="max-height: 250px; min-width: 180px">
                 </div>
                 <div class="col">
                     <table class="table table-borderless">
@@ -28,11 +28,11 @@
                         </tr>
                         <tr>
                             <td>Рейтинг групи</td>
-                            <td>3</td>
+                            <td>1</td>
                         </tr>
                         <tr>
                             <td>Рейтинг ВУЗу</td>
-                            <td>31</td>
+                            <td>1</td>
                         </tr>
                     </table>
                 </div>
@@ -44,10 +44,17 @@
             </div>
             <script type="text/javascript">
                 var ctxL = document.getElementById("lineChart").getContext('2d');
+                var array = {{$chart}};
+                var arrayLength = array.length;
+                var labelsArray = [];
+
+                for (var i = 1; i <= arrayLength; i++) {
+                    labelsArray.push(i.toString());
+                }
                 var myLineChart = new Chart(ctxL, {
                     type: 'line',
                     data: {
-                        labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
+                        labels: labelsArray,
                         datasets: [{
                             label: null,
                             data: {{$chart}},
