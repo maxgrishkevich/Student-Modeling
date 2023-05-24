@@ -10,6 +10,11 @@
                         <div class="card-header pb-0">
                             <h6>{{ __('Групи') }}</h6>
                         </div>
+                        <a href="{{ route('group.add') }}">
+                            <div class="card-header pb-0">
+                                <h6>Додати групу</h6>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-body px-0 pt-0 pb-2">

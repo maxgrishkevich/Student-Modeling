@@ -225,30 +225,21 @@
                                                 </select>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                @if (session('success'))
-                                                    <div class="alert alert-success">
-                                                        {{ session('success') }}
-                                                    </div>
-                                                @endif
-
-                                                @if (session('error'))
-                                                    <div class="alert alert-danger">
-                                                        {{ session('error') }}
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <td>
-{{--                                                <button type="submit" class="w-100 btn" style="border-radius: 0; color: #ffffff; background-color: #5e72e4">--}}
-{{--                                                    {{ __('Зберегти зміни') }}--}}
-{{--                                                </button>--}}
-                                            </td>
-                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
 
                             <button type="submit" class="w-100 btn" style="border-radius: 0; color: #ffffff; background-color: #5e72e4">
                                 {{ __('Зберегти зміни') }}

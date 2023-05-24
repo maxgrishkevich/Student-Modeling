@@ -222,7 +222,7 @@ class StudentEditController extends Controller
             $filename = $file->getClientOriginalName();
             $file->storeAs($destinationPath, $filename);
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Сталася помилка при завантаженні зораження');
+            return redirect()->back()->with('error', 'Сталася помилка при завантаженні зображення');
         }
 
         $ex = 0;

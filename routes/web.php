@@ -13,6 +13,7 @@ use App\Http\Controllers\Dashboard\GeneralController;
 use App\Http\Controllers\Dashboard\ProgressController;
 use App\Http\Controllers\Dashboard\BarChartController;
 use App\Http\Controllers\Admin\Tables\StudentEditController;
+use App\Http\Controllers\Admin\Tables\GroupEditController;
 
 
 /*
@@ -50,16 +51,25 @@ Route::group(['middleware' => ['auth']], function () {
 Route::namespace('Admin')->prefix('admin')->group(function(){
     Route::get('/', [AdminDashboard::class, 'index'])
         ->name('admin.dashboard');
+
     Route::get('/students', [StudentsController::class, 'index'])
         ->name('admin.students');
-    Route::get('/other', [OtherTablesController::class, 'index'])
-        ->name('admin.other');
     Route::put('/student/save', [StudentEditController::class, 'save'])->name('student.save');
     Route::get('/student/add', [StudentEditController::class, 'add'])->name('student.add');
     Route::get('/student/view/{id}', [StudentEditController::class, 'view'])->name('student.view');
     Route::get('/student/edit/{id}', [StudentEditController::class, 'index'])->name('student.edit');
     Route::put('/student/update/{id}', [StudentEditController::class, 'update'])->name('student.update');
     Route::delete('/student/delete/{id}', [StudentEditController::class, 'destroy'])->name('student.delete');
+
+    Route::get('/other', [OtherTablesController::class, 'index'])
+        ->name('admin.other');
+
+    Route::get('/group/edit/{id}', [GroupEditController::class, 'index'])->name('group.edit');
+    Route::put('/group/update/{id}', [GroupEditController::class, 'update'])->name('group.update');
+    Route::delete('/group/delete/{id}', [GroupEditController::class, 'destroy'])->name('group.delete');
+    Route::put('/group/save', [GroupEditController::class, 'save'])->name('group.save');
+    Route::get('/group/add', [GroupEditController::class, 'add'])->name('group.add');
+
     Route::namespace('Auth')->group(function(){
         Route::get('/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
         Route::post('/login', [LoginController::class, 'login']);
