@@ -1,0 +1,47 @@
+@extends('admin.layouts.app')
+
+@section('content')
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>{{ __('Університет') }}</h6>
+                    </div>
+
+                    <form action="/admin/university/update/{{ $university['id'] }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <td>{{ __('Університет') }}</td>
+                                            <td>
+                                                <input type="text" name="university" value="{{ $university['name'] }}" class="form-control">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            <button type="submit" class="w-100 btn" style="border-radius: 0; color: #ffffff; background-color: #5e72e4">
+                                {{ __('Зберегти зміни') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\Dashboard\StudentsController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController as AdminDashboard;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Admin\AdminController;
+//use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Dashboard\GeneralController;
@@ -14,6 +14,7 @@ use App\Http\Controllers\Dashboard\ProgressController;
 use App\Http\Controllers\Dashboard\BarChartController;
 use App\Http\Controllers\Admin\Tables\StudentEditController;
 use App\Http\Controllers\Admin\Tables\GroupEditController;
+use App\Http\Controllers\Admin\Tables\UniversityEditController;
 
 
 /*
@@ -36,7 +37,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth']], static function () {
     Route::get('/dashboard/general', [GeneralController::class, 'getData'])
         ->name('dashboard.general');
     Route::get('/dashboard/progress', [ProgressController::class, 'getData'])
@@ -69,6 +70,12 @@ Route::namespace('Admin')->prefix('admin')->group(function(){
     Route::delete('/group/delete/{id}', [GroupEditController::class, 'destroy'])->name('group.delete');
     Route::put('/group/save', [GroupEditController::class, 'save'])->name('group.save');
     Route::get('/group/add', [GroupEditController::class, 'add'])->name('group.add');
+
+    Route::get('/university/edit/{id}', [UniversityEditController::class, 'index'])->name('university.edit');
+    Route::put('/university/update/{id}', [UniversityEditController::class, 'update'])->name('university.update');
+    Route::delete('/university/delete/{id}', [UniversityEditController::class, 'destroy'])->name('university.delete');
+    Route::put('/university/save', [UniversityEditController::class, 'save'])->name('university.save');
+    Route::get('/university/add', [UniversityEditController::class, 'add'])->name('university.add');
 
     Route::namespace('Auth')->group(function(){
         Route::get('/login', [LoginController::class, 'showLoginForm'])->name('admin.login');

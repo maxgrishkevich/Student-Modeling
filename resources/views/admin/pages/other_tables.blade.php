@@ -12,7 +12,7 @@
                         </div>
                         <a href="{{ route('group.add') }}">
                             <div class="card-header pb-0">
-                                <h6>Додати групу</h6>
+                                <h6>{{ __('Додати групу') }}</h6>
                             </div>
                         </a>
                     </div>
@@ -44,7 +44,7 @@
                                         </td>
                                         <td class="align-middle">
                                             <a href="/admin/group/edit/{{ $group['id'] }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Редагувати групу">
-                                                Редагувати
+                                                {{ __('Редагувати') }}
                                             </a>
                                         </td>
                                         <td class="align-middle">
@@ -52,7 +52,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Видалити групу">
-                                                    Видалити
+                                                    {{ __('Видалити') }}
                                                 </button>
                                             </form>
                                         </td>
@@ -70,6 +70,11 @@
                         <div class="card-header pb-0">
                             <h6>{{ __('Університети') }}</h6>
                         </div>
+                        <a href="{{ route('university.add') }}">
+                            <div class="card-header pb-0">
+                                <h6>{{ __('Додати університет') }}</h6>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-body px-0 pt-0 pb-2">
