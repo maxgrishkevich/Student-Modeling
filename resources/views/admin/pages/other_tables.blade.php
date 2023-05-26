@@ -203,6 +203,11 @@
                         <div class="card-header pb-0">
                             <h6>{{ __('Спеціальності') }}</h6>
                         </div>
+                        <a href="{{ route('specialty.add') }}">
+                            <div class="card-header pb-0">
+                                <h6>{{ __('Додати спеціальність') }}</h6>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-body px-0 pt-0 pb-2">
