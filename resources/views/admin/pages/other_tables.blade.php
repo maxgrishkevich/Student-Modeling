@@ -133,6 +133,11 @@
                         <div class="card-header pb-0">
                             <h6>{{ __('Факультети') }}</h6>
                         </div>
+                        <a href="{{ route('faculty.add') }}">
+                            <div class="card-header pb-0">
+                                <h6>{{ __('Додати факультет') }}</h6>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card-body px-0 pt-0 pb-2">
@@ -169,7 +174,7 @@
                                         </td>
                                         <td class="align-middle">
                                             <a href="/admin/faculty/edit/{{ $faculty['id'] }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                                Редагувати
+                                                {{ __('Редагувати') }}
                                             </a>
                                         </td>
                                         <td class="align-middle">
@@ -177,7 +182,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Видалити факультет">
-                                                    Видалити
+                                                    {{ __('Видалити') }}
                                                 </button>
                                             </form>
                                         </td>

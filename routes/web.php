@@ -15,6 +15,7 @@ use App\Http\Controllers\Dashboard\BarChartController;
 use App\Http\Controllers\Admin\Tables\StudentEditController;
 use App\Http\Controllers\Admin\Tables\GroupEditController;
 use App\Http\Controllers\Admin\Tables\UniversityEditController;
+use App\Http\Controllers\Admin\Tables\FacultyEditController;
 
 
 /*
@@ -76,6 +77,12 @@ Route::namespace('Admin')->prefix('admin')->group(function(){
     Route::delete('/university/delete/{id}', [UniversityEditController::class, 'destroy'])->name('university.delete');
     Route::put('/university/save', [UniversityEditController::class, 'save'])->name('university.save');
     Route::get('/university/add', [UniversityEditController::class, 'add'])->name('university.add');
+
+    Route::get('/faculty/edit/{id}', [FacultyEditController::class, 'index'])->name('faculty.edit');
+    Route::put('/faculty/update/{id}', [FacultyEditController::class, 'update'])->name('faculty.update');
+    Route::delete('/faculty/delete/{id}', [FacultyEditController::class, 'destroy'])->name('faculty.delete');
+    Route::put('/faculty/save', [FacultyEditController::class, 'save'])->name('faculty.save');
+    Route::get('/faculty/add', [FacultyEditController::class, 'add'])->name('faculty.add');
 
     Route::namespace('Auth')->group(function(){
         Route::get('/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
