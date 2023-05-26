@@ -48,6 +48,11 @@
                 var arrayLength = array.length;
                 var labelsArray = [];
 
+                var gradientStroke1 = ctxL.createLinearGradient(0, 230, 0, 50);
+                gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
+                gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
+                gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
+
                 for (var i = 1; i <= arrayLength; i++) {
                     labelsArray.push(i.toString());
                 }
@@ -57,14 +62,18 @@
                         labels: labelsArray,
                         datasets: [{
                             label: null,
+                            tension: 0.4,
                             data: {{$chart}},
-                            backgroundColor: 'rgba(94, 114, 228, 0.5)',
                             borderColor: 'rgb(94, 114, 228)',
-                            borderWidth: 2
+                            backgroundColor: gradientStroke1,
+                            borderWidth: 3,
+                            fill: true,
+                            maxBarThickness: 6
                         }]
                     },
                     options: {
                         responsive: true,
+                        // maintainAspectRatio: false,
                         scales: {
                             xAxes: [{
                                 scaleLabel: {
@@ -77,7 +86,49 @@
                                     display: true,
                                     labelString: 'бали'
                                 }
-                            }]
+                            }],
+
+                            y: {
+                                grid: {
+                                    drawBorder: false,
+                                    display: true,
+                                    drawOnChartArea: true,
+                                    drawTicks: false,
+                                    borderDash: [5, 5]
+                                },
+                                ticks: {
+                                    display: true,
+                                    padding: 10,
+                                    color: '#fbfbfb',
+                                    font: {
+                                        size: 11,
+                                        family: "Open Sans",
+                                        style: 'normal',
+                                        lineHeight: 2
+                                    },
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    drawBorder: false,
+                                    display: false,
+                                    drawOnChartArea: false,
+                                    drawTicks: false,
+                                    borderDash: [5, 5]
+                                },
+                                ticks: {
+                                    display: true,
+                                    color: '#ccc',
+                                    padding: 20,
+                                    font: {
+                                        size: 11,
+                                        family: "Open Sans",
+                                        style: 'normal',
+                                        lineHeight: 2
+                                    },
+                                }
+                            },
+
                         },
                         legend: {
                             display: false
@@ -86,7 +137,7 @@
                     plugins: {
                         tooltip: {
                             callbacks: {
-                                label: function(tooltipItem, data) {
+                                label: function(tooltipItem) {
                                     var semester = 'Семестр №' + (tooltipItem.index + 1);
                                     var average = 'Середній бал: ' + tooltipItem.yLabel;
                                     return semester + '\n' + average;
@@ -140,19 +191,27 @@
                     if (typeof chart !== 'undefined') {
                         chart.destroy();
                     }
+                    var gradientStroke1 = ctx.createLinearGradient(0, 230, 0, 50);
+                    gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
+                    gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
+                    gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
                     chart = new Chart(ctx, {
                         type: 'bar',
                         data: {
                             labels: Object.keys(data),
                             datasets: [{
                                 label: 'Результуючий бал',
+                                tension: 0.4,
                                 data: Object.values(data),
-                                backgroundColor: 'rgba(94, 114, 228, 0.5)',
+                                backgroundColor: gradientStroke1,
                                 borderColor: 'rgb(94, 114, 228)',
-                                borderWidth: 2
+                                borderWidth: 3,
+                                fill: true,
+                                maxBarThickness: 6
                             }]
                         },
                         options: {
+                            responsive: true,
                             scales: {
                                 yAxes: [{
                                     ticks: {
@@ -164,7 +223,47 @@
                                     ticks: {
                                         display: false
                                     }
-                                }]
+                                }],
+                                y: {
+                                    grid: {
+                                        drawBorder: false,
+                                        display: true,
+                                        drawOnChartArea: true,
+                                        drawTicks: false,
+                                        borderDash: [5, 5]
+                                    },
+                                    ticks: {
+                                        display: true,
+                                        padding: 10,
+                                        color: '#fbfbfb',
+                                        font: {
+                                            size: 11,
+                                            family: "Open Sans",
+                                            style: 'normal',
+                                            lineHeight: 2
+                                        },
+                                    }
+                                },
+                                x: {
+                                    grid: {
+                                        drawBorder: false,
+                                        display: false,
+                                        drawOnChartArea: false,
+                                        drawTicks: false,
+                                        borderDash: [5, 5]
+                                    },
+                                    ticks: {
+                                        display: true,
+                                        color: '#ccc',
+                                        padding: 20,
+                                        font: {
+                                            size: 11,
+                                            family: "Open Sans",
+                                            style: 'normal',
+                                            lineHeight: 2
+                                        },
+                                    }
+                                },
                             },
                             legend: {
                                 display: false
