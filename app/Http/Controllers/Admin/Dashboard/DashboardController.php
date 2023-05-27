@@ -9,16 +9,28 @@ use App\Models\Group;
 use App\Models\Specialty;
 use App\Models\Student;
 use App\Models\University;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class DashboardController extends Controller
 {
+    /**
+     * Require authentication before rendering
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
 
-    public function index(){
+    /**
+     * Provide admin.dashboard template
+     *
+     * @return Application|Factory|View
+     */
+    public function index() {
         $counts = [
             'university_counter' => University::count(),
             'specialty_counter' => Specialty::count(),
@@ -56,7 +68,6 @@ class DashboardController extends Controller
             ];
             $specialtyTable[] = $newEl;
         }
-
 
         return view('admin.dashboard', [
             'counts' => $counts,

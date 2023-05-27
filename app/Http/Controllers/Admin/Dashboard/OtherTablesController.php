@@ -7,10 +7,27 @@ use App\Models\Faculty;
 use App\Models\Group;
 use App\Models\Specialty;
 use App\Models\University;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class OtherTablesController extends Controller
 {
+    /**
+     * Require authentication before rendering
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
+    /**
+     * Provide admin.pages.other_tables template
+     *
+     * @return Application|Factory|View
+     */
     public function index() {
         $universitiesTable = University::select('id', 'name')->get()->toArray();
 

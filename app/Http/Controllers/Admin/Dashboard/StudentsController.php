@@ -9,15 +9,28 @@ use App\Models\Specialty;
 use App\Models\Student;
 use App\Models\University;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
+    /**
+     * Require authentication before rendering
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
 
+    /**
+     * Provide admin.pages.students template
+     *
+     * @return Application|Factory|View
+     */
     public function index()
     {
         $studentsTable = [];
@@ -40,7 +53,6 @@ class StudentsController extends Controller
             ];
             $studentsTable[] = $newEl;
         }
-
 
         return view('admin.pages.students', [
             'student_rows' => $studentsTable

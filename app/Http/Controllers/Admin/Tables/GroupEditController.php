@@ -7,16 +7,32 @@ use App\Models\Faculty;
 use App\Models\Group;
 use App\Models\Specialty;
 use App\Models\University;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class GroupEditController extends Controller
 {
+    /**
+     * Require authentication before rendering
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
 
-    public function index($id) {
+    /**
+     * Render and provide edit template
+     *
+     * @param $id
+     * @return Application|Factory|View|RedirectResponse
+     */
+    public function index($id)
+    {
         try {
             $data = [];
             $group = Group::where('id', $id)->first();
@@ -40,7 +56,15 @@ class GroupEditController extends Controller
         }
     }
 
-    public function update(Request $request, $id) {
+    /**
+     * Save changes to groups table
+     *
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function update(Request $request, $id): RedirectResponse
+    {
         $group = Group::find($id);
         if (!$group) {
             return redirect()->back()->with('error', 'Групу не знайдено');
@@ -51,7 +75,14 @@ class GroupEditController extends Controller
         return redirect()->back()->with('success', 'Зміни збережено успішно');
     }
 
-    public function destroy ($id) {
+    /**
+     * Delete item from faculties table
+     *
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function destroy ($id): RedirectResponse
+    {
         try {
             $group = Group::findOrFail($id);
             $group->delete();
@@ -61,7 +92,13 @@ class GroupEditController extends Controller
         }
     }
 
-    public function add(){
+    /**
+     * Render and provides add template
+     *
+     * @return Application|Factory|View|RedirectResponse
+     */
+    public function add()
+    {
         try{
             $specData = $this->getSpecData();
             return view('admin.add.group', ['specialties' => $specData]);
@@ -70,7 +107,14 @@ class GroupEditController extends Controller
         }
     }
 
-    public function save(Request $request) {
+    /**
+     * Save changes to groups table by adding new instance
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function save(Request $request): RedirectResponse
+    {
         $group = new Group();
         $group->name = $request->input('group');
         $group->specialty_id = $request->input('specialty');
@@ -78,6 +122,11 @@ class GroupEditController extends Controller
         return redirect()->back()->with('success', 'Зміни збережено успішно');
     }
 
+    /**
+     * Get data of specialities
+     *
+     * @return array
+     */
     private function getSpecData(): array
     {
         $specData = [];

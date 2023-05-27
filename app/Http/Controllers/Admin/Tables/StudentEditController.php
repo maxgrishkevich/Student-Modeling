@@ -11,17 +11,33 @@ use App\Models\Student;
 use App\Models\University;
 use App\Models\User;
 use Carbon\Carbon;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class StudentEditController extends Controller
 {
+    /**
+     * Require authentication before rendering
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
 
+    /**
+     * Render and provide edit template
+     *
+     * @param $id
+     * @return Application|Factory|View
+     */
     public function index($id)
     {
         $general = [];
@@ -93,16 +109,24 @@ class StudentEditController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id){
+    /**
+     * Save changes to students table
+     *
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function update(Request $request, $id): RedirectResponse
+    {
         $student = Student::find($id);
         if (!$student) {
             return redirect()->back()->with('error', 'Студент не знайдений');
         }
         $user = User::find($student->user_id);
-        $group = Group::find($student->group_id);
-        $specialty = Specialty::find($group->specialty_id);
-        $faculty = Faculty::find($specialty->faculty_id);
-        $university = University::find($specialty->university_id);
+//        $group = Group::find($student->group_id);
+//        $specialty = Specialty::find($group->specialty_id);
+//        $faculty = Faculty::find($specialty->faculty_id);
+//        $university = University::find($specialty->university_id);
         $experience = Experience::where('user_id', $user->id)->first();
 
         $fullname = explode(' ', $request->input('fullname'));
@@ -139,20 +163,31 @@ class StudentEditController extends Controller
         return redirect()->back()->with('success', 'Зміни збережено успішно');
     }
 
-    public function destroy ($id) {
+    /**
+     * Delete item from faculties table
+     *
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function destroy ($id): RedirectResponse
+    {
         try {
             $student = Student::findOrFail($id);
-
             $student->delete();
-
             return redirect()->back()->with('success', 'Студента успішно видалено');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with('error', 'Сталася помилка при видаленні студента');
         }
     }
 
-    public function view ($id) {
-
+    /**
+     * Render and provide view template
+     *
+     * @param $id
+     * @return Application|Factory|View
+     */
+    public function view ($id)
+    {
         $general = [];
         $edu = [];
         $ex = [];
@@ -205,7 +240,6 @@ class StudentEditController extends Controller
             $img = $student->image;
         }
 
-
         return view('admin.view.student', [
             'general' => $general,
             'edu' => $edu,
@@ -214,24 +248,28 @@ class StudentEditController extends Controller
         ]);
     }
 
-    public function save (Request $request) {
-
+    /**
+     * Save changes to groups table by adding new instance
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function save (Request $request): RedirectResponse
+    {
         try {
             $file = $request->file('image');
             $destinationPath = 'public/img/students';
             $filename = $file->getClientOriginalName();
             $file->storeAs($destinationPath, $filename);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with('error', 'Сталася помилка при завантаженні зображення');
         }
-
         $ex = 0;
         if ($request->input('employment_status') === 'Працевлаштований'){
             $ex = 1;
         }
         $fullname = explode(' ', $request->input('fullname'));
         $group = Group::where('name', $request->input('group'))->first();
-
         try {
             $user = new User();
             $user->name = $request->input('nickname');
@@ -241,10 +279,9 @@ class StudentEditController extends Controller
             $user->remember_token = Str::random(10);
 
             $user->save();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with('error', 'Сталася помилка при створенні користувача');
         }
-
         try {
             $experience = new Experience();
             $experience->user_id = $user->id;
@@ -255,12 +292,10 @@ class StudentEditController extends Controller
             $experience->position = $request->input('position');
             $experience->level = $request->input('level');
             $experience->eng_level = $request->input('eng_level');
-
             $experience->save();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with('error', 'Сталася помилка при створенні даних досвіду');
         }
-
         try {
             $student = new Student();
             $student->user_id = $user->id;
@@ -274,15 +309,18 @@ class StudentEditController extends Controller
             $student->entry_date = $request->input('entry_date');
             $student->graduation_date = $request->input('graduation_date');
             $student->educational_degree = $request->input('educational_degree');
-
             $student->save();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with('error', 'Сталася помилка при створенні студента');
         }
-
         return redirect()->back()->with('success', 'Зміни збережено успішно');
     }
 
+    /**
+     * Render and provides add template
+     *
+     * @return Application|Factory|View
+     */
     public function add(){
         $groups = Group::select('name')->get()->toArray();
         return view('admin.add.student', ['groups'=>$groups]);

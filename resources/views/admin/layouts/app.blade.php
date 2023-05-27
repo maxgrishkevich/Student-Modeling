@@ -16,7 +16,6 @@
     <link href="{{ asset('css/admin/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    {{--    <link href="{{ asset('css/admin/nucleo-svg.css') }}" rel="stylesheet" />--}}
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('css/admin/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
     <link href="{{ asset('css/admin/boot.css') }}" rel="stylesheet" />
@@ -26,7 +25,7 @@
     <script src="{{ asset('js/admin/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/admin/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/admin/plugins/chartjs.min.js') }}"></script>
-    <script src="{{ asset('js/admin/argon-dashboard.min.js?v=2.0.4') }}"></script>
+{{--    <script src="{{ asset('js/admin/argon-dashboard.min.js?v=2.0.4') }}"></script>--}}
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -113,7 +112,7 @@
                         </form>
                     </li>
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+                        <a href="javascript:" class="nav-link text-white p-0" id="iconNavbarSidenav">
                             <div class="sidenav-toggler-inner">
                                 <i class="sidenav-toggler-line bg-white"></i>
                                 <i class="sidenav-toggler-line bg-white"></i>
