@@ -73,7 +73,6 @@
                     },
                     options: {
                         responsive: true,
-                        // maintainAspectRatio: false,
                         scales: {
                             xAxes: [{
                                 scaleLabel: {

@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/admin/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('img/welcome/logo.png') }}">
-    <title>
-        Studel Admin
-    </title>
-    <!--     Fonts and icons     -->
+    <title>Studel Admin</title>
+    <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Icons -->
     <link href="{{ asset('css/admin/nucleo-icons.css') }}" rel="stylesheet" />
@@ -25,7 +23,6 @@
     <script src="{{ asset('js/admin/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/admin/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/admin/plugins/chartjs.min.js') }}"></script>
-{{--    <script src="{{ asset('js/admin/argon-dashboard.min.js?v=2.0.4') }}"></script>--}}
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">

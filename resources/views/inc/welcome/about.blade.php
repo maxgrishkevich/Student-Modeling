@@ -7,7 +7,6 @@
     <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-center u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-group-1">
             <div class="u-container-layout">
-{{--                <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-default u-text-1">about us</h6>--}}
                 <h2 class="u-align-left u-custom-font u-font-montserrat u-text u-text-2">Ласкаво просимо до нашої команди</h2>
                 <h5 class="u-align-left u-custom-font u-font-montserrat u-text u-text-palette-5-base u-text-3">Ми - висококваліфіковані професіонали з багаторічним досвідом, присвяченим допомозі студентам досягти максимального потенціалу у своєму навчанні.</h5>
                 <p class="u-align-left u-text u-text-4"><a href="https://github.com/maxgrishkevich" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-5-base u-btn-1">@maxgrishkevich</a>

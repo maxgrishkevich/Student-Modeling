@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="{{ asset('css/welcome/about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome/intro.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome/info.css') }}">
-{{--    <link rel="stylesheet" href="{{ asset('css/welcome/boot.css') }}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
-
 
     <script src="https://capp.nicepage.com/0f399d8d77c1f9d0012fc8858caffe18bebb5172/main-libs.js"></script>
     <script src="https://capp.nicepage.com/f862f25d105a95958148db2e2b0afcc3967f9b5b/nicepage.js"></script>

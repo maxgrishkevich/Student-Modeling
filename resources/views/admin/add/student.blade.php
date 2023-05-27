@@ -41,10 +41,6 @@
                                         </tr>
                                     </table>
                                 </div>
-{{--                                    <label for="image" class="form-label">Зображення</label>--}}
-
-{{--                                    <img class="img-thumbnail rounded-0" src="{{ asset("img/students/") }}" alt="student-img" style="max-height: 250px; min-width: 180px">--}}
-{{--                                </div>--}}
                                 <div class="col">
                                     <table class="table table-borderless">
                                         <tr>

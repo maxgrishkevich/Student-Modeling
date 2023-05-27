@@ -13,8 +13,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
-{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -25,7 +23,6 @@
     <link rel="stylesheet" href="{{ asset('css/welcome/about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome/boot.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome/intro.css') }}">
-{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 </head>
 <body>
     <div id="app">
