@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Dashboard\GeneralController;
 use App\Http\Controllers\Dashboard\ProgressController;
+use App\Http\Controllers\Dashboard\BoostController;
 use App\Http\Controllers\Dashboard\BarChartController;
 use App\Http\Controllers\Admin\Tables\StudentEditController;
 use App\Http\Controllers\Admin\Tables\GroupEditController;
@@ -42,10 +43,18 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::group(['middleware' => ['auth']], static function () {
     Route::get('/dashboard/general', [GeneralController::class, 'getData'])
         ->name('dashboard.general');
+
     Route::get('/dashboard/progress', [ProgressController::class, 'getData'])
         ->name('dashboard.progress');
     Route::get('/dashboard/progress/barchart', [BarChartController::class, 'index'])
         ->name('progress.barchart');
+
+    Route::get('/dashboard/boost', [BoostController::class, 'index'])
+        ->name('dashboard.boost');
+    Route::get('/dashboard/boost/load', [BoostController::class, 'loadBoost'])
+        ->name('dashboard.load_boost');
+    Route::get('/dashboard/boost/change_status/{id}', [BoostController::class, 'changeStatus'])
+        ->name('boost.change_status');
 });
 
 

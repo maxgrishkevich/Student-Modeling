@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMarksTable extends Migration
+class CreateBoostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMarksTable extends Migration
      */
     public function up()
     {
-        Schema::create('marks', function (Blueprint $table) {
+        Schema::create('boosts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('student_id');
             $table->foreign('student_id')->references('id')
@@ -21,8 +21,9 @@ class CreateMarksTable extends Migration
             $table->unsignedBigInteger('subject_id');
             $table->foreign('subject_id')->references('id')
                 ->on('subjects')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->unsignedSmallInteger('semester');
-            $table->unsignedSmallInteger('mark');
+            $table->boolean('status');
+            $table->text('link');
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class CreateMarksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marks');
+        Schema::dropIfExists('boosts');
     }
 }

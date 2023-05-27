@@ -57,6 +57,11 @@
                                     {{ __('Успішність') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{ route('dashboard.boost') }}" role="button">
+                                    {{ __('Покращення') }}
+                                </a>
+                            </li>
                         @endguest
                     </ul>
 
