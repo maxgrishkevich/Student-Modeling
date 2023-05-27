@@ -2,7 +2,9 @@
 
 @section('info-card')
     <div class="card">
-        <div class="card-header">{{ __('Покращення знань') }}</div>
+        <div class="card-header" style="background-color: #5e72e4 !important;color: #ffffff !important;">
+            {{ __('Покращення знань') }}
+        </div>
         <div class="card-body">
             <div class="row mb-5 mt-3">
                 <div class="col d-flex">

@@ -11,15 +11,17 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('img/welcome/logo.png') }}">
     <title>{{ __('Studel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_6.2.0/css/mdb.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/welcome/about.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/welcome/boot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/welcome/intro.css') }}">
+{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 </head>
 <body>
     <div id="app">
@@ -27,7 +29,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img width="40" height="40" src="{{ asset('img/welcome/logo.png') }}" alt="logo image">
-                    <img width="90" height="25" class="ml-2" src="{{ asset('img/welcome/logo_name.png') }}" alt="logo name">
+                    <img width="90" height="25" style="margin-left: 0.5rem" src="{{ asset('img/welcome/logo_name.png') }}" alt="logo name">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

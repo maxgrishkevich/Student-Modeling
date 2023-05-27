@@ -2,7 +2,6 @@
 .btn-floating {
     border-radius: 50% !important;
     padding: 0 !important;
-    margin: 0 !important;
 }
 
 .fab {
@@ -12,4 +11,13 @@
 
 .card-header:first-child {
     border-radius: 0 !important;
+}
+
+.card-header {
+    background-color: #5e72e4 !important;
+    color: #ffffff !important;
+}
+
+.table {
+    --mdb-table-striped-bg: rgba(94,114,228,0.2) !important;
 }

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('img/welcome/logo.png') }}">
-    <title>{{ config('app.name', 'Studel') }}</title>
+    <title>{{ __('Studel') }}</title>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -24,7 +24,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/welcome/about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome/boot.css') }}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/welcome/intro.css') }}">
+{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 </head>
 <body>
     <div id="app">
@@ -32,15 +33,13 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img width="40" height="40" src="{{ asset('img/welcome/logo.png') }}" alt="logo image">
-                    <img width="90" height="25" class="ml-2" src="{{ asset('img/welcome/logo_name.png') }}" alt="logo name">
+                    <img width="90" height="25" style="margin-left: 0.5rem" src="{{ asset('img/welcome/logo_name.png') }}" alt="logo name">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Center Side Of Navbar -->
-
                     <ul class="navbar-nav mx-auto">
                         @guest
                             @if (Route::has('login'))
@@ -65,13 +64,11 @@
                         @endguest
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav justify-content-end">
-                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Увійти') }}</a>
+{{--                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Увійти') }}</a>--}}
                                 </li>
                             @endif
 {{--                            @if (Route::has('register'))--}}

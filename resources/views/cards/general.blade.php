@@ -37,7 +37,7 @@
 
             <div class="row">
                 <div class="col">
-                    <table class="table table-striped table-hover table-responsive" style="--bs-table-striped-bg: rgba(98,114,216,0.5)">
+                    <table class="table table-striped table-hover table-responsive">
                         <thead>
                         <tr>
                             <th class="fw-bold">{{ __('Освіта') }}</th>
