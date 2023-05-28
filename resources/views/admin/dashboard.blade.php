@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 carousel-img" id="carousel-img">
+            <div class="col-lg-5 carousel-img mb-4" id="carousel-img">
                 <div class="card card-carousel overflow-hidden h-100 p-0">
                     <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
                         <div class="carousel-inner border-radius-lg h-100 p-5">
