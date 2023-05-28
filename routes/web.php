@@ -1,12 +1,10 @@
 <?php
 
-//use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\Dashboard\OtherTablesController;
 use App\Http\Controllers\Admin\Dashboard\StudentsController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController as AdminDashboard;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-//use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Dashboard\GeneralController;
@@ -39,7 +37,6 @@ Auth::routes();
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
-
 Route::group(['middleware' => ['auth']], static function () {
     Route::get('/dashboard/general', [GeneralController::class, 'getData'])
         ->name('dashboard.general');
@@ -56,8 +53,6 @@ Route::group(['middleware' => ['auth']], static function () {
     Route::get('/dashboard/boost/change_status/{id}', [BoostController::class, 'changeStatus'])
         ->name('boost.change_status');
 });
-
-
 
 
 Route::namespace('Admin')->prefix('admin')->group(function(){
