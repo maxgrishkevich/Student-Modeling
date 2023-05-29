@@ -259,8 +259,9 @@ class StudentEditController extends Controller
         try {
             $file = $request->file('image');
             $destinationPath = 'public/img/students';
-            $filename = $file->getClientOriginalName();
-            $file->storeAs($destinationPath, $filename);
+            $storedFileName = $file->store($destinationPath);
+//            $filename = $file->getClientOriginalName();
+//            $file->storeAs($destinationPath, $filename);
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Сталася помилка при завантаженні зображення');
         }
@@ -303,7 +304,7 @@ class StudentEditController extends Controller
             $student->firstname = $fullname[1];
             $student->middlename = $fullname[2];
             $student->lastname = $fullname[0];
-            $student->image = $filename;
+            $student->image = basename($storedFileName);
             $student->birth = $request->input('birth');
             $student->sex = $request->input('sex');
             $student->entry_date = $request->input('entry_date');

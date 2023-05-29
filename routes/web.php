@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\Dashboard\ApplicationsController;
 use App\Http\Controllers\Admin\Dashboard\OtherTablesController;
 use App\Http\Controllers\Admin\Dashboard\StudentsController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController as AdminDashboard;
+use App\Http\Controllers\Auth\RegisterApplicationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\Auth\LoginController;
@@ -36,6 +38,12 @@ Route::get('/', static function () {
 Auth::routes();
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::group(['middleware' => ['guest']], static function () {
+    Route::get('/register_application', [RegisterApplicationController::class, 'index'])
+        ->name('register.application');
+    Route::put('/register_application/save', [RegisterApplicationController::class, 'save'])
+        ->name('application.save');
+});
 
 Route::group(['middleware' => ['auth']], static function () {
     Route::get('/dashboard/general', [GeneralController::class, 'getData'])
@@ -70,6 +78,14 @@ Route::namespace('Admin')->prefix('admin')->group(function(){
 
     Route::get('/other', [OtherTablesController::class, 'index'])
         ->name('admin.other');
+    Route::get('/applications', [ApplicationsController::class, 'index'])
+        ->name('admin.applications');
+    Route::get('/application/view/{id}', [ApplicationsController::class, 'view'])
+        ->name('application.view');
+    Route::delete('/application/reject/{id}', [ApplicationsController::class, 'reject'])
+        ->name('application.reject');
+    Route::put('/application/accept/{id}', [ApplicationsController::class, 'accept'])
+        ->name('application.accept');
 
     Route::get('/group/edit/{id}', [GroupEditController::class, 'index'])->name('group.edit');
     Route::put('/group/update/{id}', [GroupEditController::class, 'update'])->name('group.update');
