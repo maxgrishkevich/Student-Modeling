@@ -1,0 +1,7 @@
+user:
+-login:maksim2002gri@gmail.com
+-pass:qwerty123
+
+admin:
+-login:admin@gmail.com
+-pass:qwerty123
